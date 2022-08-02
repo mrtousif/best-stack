@@ -1,4 +1,4 @@
-import { makeValidators, str,url, Static, port } from 'nestjs-envalid';
+import { Static, makeValidators, port, str, url } from 'nestjs-envalid';
 
 export const validators = makeValidators({
     NODE_ENV: str({ choices: ['development', 'test', 'production', 'staging'] }),
@@ -7,7 +7,9 @@ export const validators = makeValidators({
     S3_REGION: str(),
     S3_ENDPOINT: url(),
     S3_BUCKET: str(),
-    API_PORT: port({ default: 3000 })
+    PORT: port({ default: 3000 }),
+    S3_ACCESS_KEY_ID: str(),
+    S3_SECRET_ACCESS_KEY: str(),
 });
 
 export type Config = Static<typeof validators>;

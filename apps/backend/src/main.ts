@@ -1,7 +1,8 @@
-import { NestFactory, HttpAdapterHost } from '@nestjs/core';
+import { HttpAdapterHost, NestFactory } from '@nestjs/core';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
-import { PrismaService, PrismaClientExceptionFilter } from 'nestjs-prisma';
 import { ClsMiddleware } from 'nestjs-cls';
+import { PrismaClientExceptionFilter, PrismaService } from 'nestjs-prisma';
+
 // import underPressure from "@fastify/under-pressure";
 import { AppModule } from './app.module';
 
@@ -33,6 +34,6 @@ async function bootstrap() {
     const { httpAdapter } = app.get(HttpAdapterHost);
     app.useGlobalFilters(new PrismaClientExceptionFilter(httpAdapter));
 
-    await app.listen(process.env.API_PORT);
+    await app.listen(process.env.PORT);
 }
 bootstrap();

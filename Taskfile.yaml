@@ -30,3 +30,10 @@ tasks:
       - echo "Removing Docker volumes"
       - docker volume rm $(docker volume ls -q)
 
+  dockerBuildBackend:
+    cmds: 
+      - docker build -f ./apps/backend/Dockerfile --build-arg SCOPE="backend" --build-arg SCOPE="backend" --build-arg PORT=6000 --tag youtube-clone/backend .
+
+  goInsideContainer:
+    cmds:
+      - docker run --rm -it --entrypoint /bin/sh youtube-clone/backend:latest

@@ -27,9 +27,7 @@
         "auto": "^10.37.2",
         "danger": "11.0.7",
         "danger-plugin-code-coverage": "1.1.9",
-        "danger-plugin-complete-pr": "1.0.1",
         "danger-plugin-coverage": "1.6.2",
-        "danger-plugin-node-dependencies": "0.0.2",
         "eslint-config-custom": "workspace:*",
         "https-localhost": "4.7.1",
         "husky": "8.0.1",
@@ -48,7 +46,8 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged"
+            "pre-commit": "lint-staged",
+            "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
         }
     },
     "engines": {

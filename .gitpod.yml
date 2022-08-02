@@ -45,8 +45,9 @@ vscode:
     - zhuangtongfa.material-theme
     - mhutchie.git-graph
     - rangav.vscode-thunder-client
-
     - mikestead.dotenv
+    - IBM.output-colorizer
+    - streetsidesoftware.code-spell-checker
 
 github:
   prebuilds:
